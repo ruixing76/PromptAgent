@@ -39,7 +39,7 @@ class CustomTask(BaseTask):
         json_data = self._load_json_file(data_dir)
         self.task_description = json_data['description']
         max_example = max(json_data['examples'], key=lambda x: len(x['target_scores']))
-        self.option_num = len(max_example['target_scores'])
+        self.option_num = len(max_example['target_scores'])  # Determine the number of options based on the maximum number of target scores in examples
         return json_data
     
     def transform_format(self, data):

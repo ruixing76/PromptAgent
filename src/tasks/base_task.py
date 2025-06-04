@@ -181,7 +181,7 @@ class BaseTask():
         Transfer the form of the task ground-truth answers to List(set) 
         or List(str) that fit the input requirement of function "cal_correct"
         
-        Do nothing if the data is alreadly loaded that way.
+        Do nothing if the data is already loaded that way.
         '''
         return labels
     
@@ -217,7 +217,7 @@ class BaseTask():
             batch_answers.append(self.clean_response(response))
         return batch_answers
     
-    def build_forward_prompts_completion(self, questions, cur_propmt):
+    def build_forward_prompts_completion(self, questions, cur_prompt):
         '''
         Optional: <task specific>
         The format of combining question and prompts.
@@ -225,10 +225,10 @@ class BaseTask():
         prompts = []
         if self.post_instruction:
             for question in questions:
-                prompts.append(f'{question}\n{cur_propmt}')
+                prompts.append(f'{question}\n{cur_prompt}')
         else:
             for question in questions:
-                prompts.append(f'{cur_propmt}\n{question}\n{self.answer_format_prompt}')#
+                prompts.append(f'{cur_prompt}\n{question}\n{self.answer_format_prompt}')#
         
         return prompts
     
