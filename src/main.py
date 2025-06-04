@@ -43,7 +43,7 @@ def validate_config(config):
         raise ValueError("Please set base model's api key")
 
     # Optim model setting
-    assert config['optim_model_setting']['model_type'] in ['openai', 'palm', 'hf_text2text', 'hf_textgeneration', 'ct_model'], \
+    assert config['optim_model_setting']['model_type'] in ['openai', 'palm', 'hf_text2text', 'hf_textgeneration', 'ct_model', 'vllm'], \
         "optim_model.model_type must be one of 'openai', 'palm', 'hf_text2text', 'hf_textgeneration', 'ct_model' and 'vllm' "
     assert config['optim_model_setting']['model_name'] is not None, "optim_model.model_name must be specified"
     assert isinstance(config['optim_model_setting']['temperature'], float), "optim_model.temperature must be a float"
