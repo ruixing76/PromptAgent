@@ -91,6 +91,7 @@ class GradientDescent():
     
     
     def _split_error_and_correct_examples(self, forward_output): 
+        # either 0 or 1
         error_examples = []
         correct_examples = []
         count = 0
