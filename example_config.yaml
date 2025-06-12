@@ -23,7 +23,7 @@ base_model_setting:
   model_type: openai # openai | palm | hf_text2text | hf_textgeneration | ct_model
   model_name: gpt-4o-mini # api-based model'name or huggingface model name
   temperature: 0.0
-  api_key: sk-proj-xmAfO4QQUXLgrD6pBCs5T3BlbkFJomduIuMYuTBPaixO79iF # if need api key
+  api_key: KEY # if need api key
   device: null # cuda | cpu | cuda:x, e.g. 0,1,2...
   gpu_ids: null # [0,1,...] for vllm model
   model_path: null # ct model requires the downloaded model's path
@@ -32,7 +32,7 @@ optim_model_setting:
   model_type: openai # openai | palm | hf_text2text | hf_textgeneration | ct_model
   model_name: gpt-4o-mini # api-based model'name or huggingface model name
   temperature: 1.0
-  api_key: sk-proj-xmAfO4QQUXLgrD6pBCs5T3BlbkFJomduIuMYuTBPaixO79iF  # if need api key
+  api_key: KEY  # if need api key
   device: null # cuda | cpu | cuda:x, e.g. 0,1,2...
   gpu_ids: null # [0,1,...] for vllm model
   model_path: null # ct model requires the downloaded model's path
