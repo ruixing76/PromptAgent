@@ -6,12 +6,12 @@ log_dir: ./logs/
 
 # your initial prompt
 init_prompt: |
-  Predict two helpfulness reasons of the note in explaining the claim. Please do not modify the options.
+  Predict two helpfulness reasons of the note in explaining the claim.
 
 task_setting:
-  train_size: 5
+  train_size: 5 
   eval_size: 5 # data split for reward calculation
-  test_size: 10 # if test_size is not 0, the optimized nodes will be tested at last.
+  test_size: 5 # if test_size is not 0, the optimized nodes will be tested at last.
   seed: 42 # if need to fixed shuffled dataset
   data_dir: ./datasets/community_notes.json # if data is downloaded
   # Note: the current supported bigbench tasks are specified by 
