@@ -1,19 +1,19 @@
 # basic settings
-task_name: bigbench # bigbench | ncbi | ... | or your own task
+task_name: community_notes # bigbench | ncbi | ... | or your own task
 search_algo: mcts # mcts | beam_search
 print_log: true
 log_dir: ./logs/
 
 # your initial prompt
 init_prompt: |
-  Answer questions about a table of penguins and their attributes.
+  Predict two helpfulness reasons of the note in explaining the claim. Please do not modify the options.
 
 task_setting:
-  train_size: 70 
-  eval_size: 50 # data split for reward calculation
-  test_size: 79 # if test_size is not 0, the optimized nodes will be tested at last.
+  train_size: 5
+  eval_size: 5 # data split for reward calculation
+  test_size: 10 # if test_size is not 0, the optimized nodes will be tested at last.
   seed: 42 # if need to fixed shuffled dataset
-  data_dir: ./datasets/penguins_in_a_table.json # if data is downloaded
+  data_dir: ./datasets/community_notes.json # if data is downloaded
   # Note: the current supported bigbench tasks are specified by 
   # data_dir using the same task_name (bigbench), if there is not
   # specific .py class inplemented in the tasks folder.
@@ -23,16 +23,16 @@ base_model_setting:
   model_type: openai # openai | palm | hf_text2text | hf_textgeneration | ct_model
   model_name: gpt-4o-mini # api-based model'name or huggingface model name
   temperature: 0.0
-  api_key: null # if need api key
+  api_key: sk-proj-xmAfO4QQUXLgrD6pBCs5T3BlbkFJomduIuMYuTBPaixO79iF # if need api key
   device: null # cuda | cpu | cuda:x, e.g. 0,1,2...
   gpu_ids: null # [0,1,...] for vllm model
   model_path: null # ct model requires the downloaded model's path
 
 optim_model_setting:
   model_type: openai # openai | palm | hf_text2text | hf_textgeneration | ct_model
-  model_name: gpt-4-turbo # api-based model'name or huggingface model name
+  model_name: gpt-4o-mini # api-based model'name or huggingface model name
   temperature: 1.0
-  api_key: null  # if need api key
+  api_key: sk-proj-xmAfO4QQUXLgrD6pBCs5T3BlbkFJomduIuMYuTBPaixO79iF  # if need api key
   device: null # cuda | cpu | cuda:x, e.g. 0,1,2...
   gpu_ids: null # [0,1,...] for vllm model
   model_path: null # ct model requires the downloaded model's path
