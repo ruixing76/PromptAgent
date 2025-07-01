@@ -88,7 +88,7 @@ class CustomTask(BaseTask):
         for split in data_split:
             split_examples=[]
             for example in data[split]:
-                task_prefix = "Predict two reasons separated by semicolon why the note is helpful or not helpful in explaining the claim using the following options"
+                task_prefix = "Predict two reasons why the note is helpful or not helpful in explaining the claim using the following options"
                 question_format = "Claim: {claim}\nNote: {note}\n"
                 question = task_prefix+"\n"+question_format.format(claim=example['claim'], note=example['note_text'])
                 # answer = set(REASON_LABELS[reason] for reason in example['reasons'].split(';'))
