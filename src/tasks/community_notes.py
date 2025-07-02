@@ -117,7 +117,9 @@ class CustomTask(BaseTask):
             backup_match = re.findall(pattern_str, response, re.IGNORECASE)
 
             if backup_match:
-                return REASON_LABELS[backup_match[-1].lower()]
+                # TODO if error, lowercase all in REASON_LABELS and find the match
+                LOWER_REASON_LABELS = {k.lower(): v for k, v in REASON_LABELS.items()}
+                return LOWER_REASON_LABELS[backup_match[-1].lower()]
             else:
                 return 'N/A: Format error'
 
@@ -140,9 +142,15 @@ class CustomTask(BaseTask):
         labels: List of sets, each set contains the true labels for a claim-note pair.
         Returns a list of integers, where 1 indicates a correct prediction and 0 indicates an incorrect prediction.
         '''
+        # check if preds and labels are List of sets
+        if not isinstance(preds, list) or not isinstance(labels, list):
+            raise ValueError("preds and labels must be List of sets")
+        if not all(isinstance(p, set) for p in preds) or not all(isinstance(l, set) for l in labels):
+            raise ValueError("preds and labels must be List of sets")
+        
         comparisons = []
         for p, l in zip(preds, labels):
-            # compute the intersection of predicted and true labels, comparison = intersection of p and l // union of p and l
+            # compute the intersection of predicted and true labels, comparison = intersection of p and l
             intersection = p.intersection(l)
             union = p.union(l)
             if len(union) == 0:
