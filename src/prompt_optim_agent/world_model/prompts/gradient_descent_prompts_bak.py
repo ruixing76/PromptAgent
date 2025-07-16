@@ -2,7 +2,7 @@
 # https://arxiv.org/abs/2305.03495
 
 gradient_prompt_tempelate = """
-I'm writing prompts for a language model designed for classification task. I also provided the initial definition of each label.
+I'm writing prompts for a language model designed for a task.
 
 My current prompt is:
 {cur_prompt}
@@ -10,12 +10,11 @@ My current prompt is:
 But this prompt gets the following examples wrong:
 {example_string}
 
-For each wrong example, carefully examine each question and wrong answer step by step, provide comprehensive and different reasons why the prompt and the definition of each label leads to the wrong answer. Focus on the definition of each label and examine if the definition is comprehensive, ensuring they clearly capture the patterns observed in the examples. At last, based on all these reasons, summarize and list all the aspects that can improve the prompt.
-
+For each wrong example, carefully examine each question and wrong answer step by step, provide comprehensive and different reasons why the prompt leads to the wrong answer. At last, based on all these reasons, summarize and list all the aspects that can improve the prompt.
 """.strip()
 
 optimize_prompt_tempelate = """
-I'm writing prompts for a language model designed for classification task. I also provided the initial definition of each label.
+I'm writing prompts for a language model designed for a task.
 
 My current prompt is:
 {cur_prompt}
@@ -32,8 +31,7 @@ There are a list of former prompts including the current prompt, and each prompt
 Based on the above information, please write {steps_per_gradient} new prompts following these guidelines:
 1. The new prompts should solve the current prompt's problems.
 2. The new prompts should consider the list of prompts and evolve based on the current prompt.
-3. Revise the definition of labels but do not change the label names or add/remove any labels.
-4. Each new prompt should be wrapped with <START> and <END>.
+3. Each new prompt should be wrapped with <START> and <END>.
 
 The new prompts are:
 """.strip()
@@ -51,7 +49,7 @@ The model's prediction is: {prediction}.
 """
 
 optimize_prompt_tempelate_single = """
-I'm writing prompts for a language model designed for classification task. I also provided the initial definition of each label.
+I'm writing prompts for a language model designed for a task.
 
 My current prompt is:
 {cur_prompt}
@@ -68,14 +66,13 @@ There are a list of former prompts including the current prompt, and each prompt
 Based on the above information, please write 1 new prompt following these guidelines:
 1. The new prompt should solve the current prompt's problems.
 2. The new prompt should consider the list of prompts and evolve based on the current prompt.
-3. Revise the definition of labels but do not change the label names or add/remove any labels.
-4. The new prompt should be wrapped with <START> and <END>.
+3. The new prompt should be wrapped with <START> and <END>.
 
 The new prompts is:
 """.strip()
 
 ascend_gradient_prompt_tempelate = """
-I'm writing prompts for a language model designed for classification task. I also provided the initial definition of each label.
+I'm writing prompts for a language model designed for a task.
 
 My current prompt is:
 {cur_prompt}
@@ -83,11 +80,11 @@ My current prompt is:
 This prompt gets the following examples correct:
 {example_string}
 
-For each example, carefully examine each question and correct answer step by step, provide comprehensive and different reasons why the prompt leads to the correct answer. Focus on label definitions. At last, based on all these reasons, summarize and list all the aspects that can improve the prompt.
+For each example, carefully examine each question and correct answer step by step, provide comprehensive and different reasons why the prompt leads to the correct answer. At last, based on all these reasons, summarize and list all the aspects that can improve the prompt.
 """.strip()
 
 ascend_optimize_prompt_tempelate = """
-I'm writing prompts for a language model designed for classification task. I also provided the initial definition of each label.
+I'm writing prompts for a language model designed for a task.
 
 My current prompt is:
 {cur_prompt}
@@ -104,14 +101,13 @@ There are a list of former prompts including the current prompt, and each prompt
 Based on the above information, please write {steps_per_gradient} new prompts following these guidelines:
 1. The new prompts should solve the current prompt's problems.
 2. The new prompts should consider the list of prompts and evolve based on the current prompt.
-3. Revise the definition of labels but do not change the label names or add/remove any labels.
-4. Each new prompt should be wrapped with <START> and <END>.
+3. Each new prompt should be wrapped with <START> and <END>.
 
 The new prompts are:
 """.strip()
 
 ascend_optimize_prompt_tempelate_single = """
-I'm writing prompts for a language model designed for classification task. I also provided the initial definition of each label.
+I'm writing prompts for a language model designed for a task.
 
 My current prompt is:
 {cur_prompt}
@@ -128,8 +124,7 @@ There are a list of former prompts including the current prompt, and each prompt
 Based on the above information, please write 1 new prompts following these guidelines:
 1. The new prompts should solve the current prompt's problems.
 2. The new prompts should consider the list of prompts and evolve based on the current prompt.
-3. Revise the definition of labels but do not change the label names or add/remove any labels.
-4. Each new prompt should be wrapped with <START> and <END>.
+3. Each new prompt should be wrapped with <START> and <END>.
 
 The new prompts is:
 """.strip()
